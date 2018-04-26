@@ -259,4 +259,3 @@ app.use('/cars', cars);
 
 Copyright (c) 2017 Damien Perrier
 Licensed under the [MIT license](LICENSE).
-"# test-mongoose-gen" 

@@ -16,7 +16,7 @@ module.exports = {
                 headers: { Authorization: "bearer " + token }
             };
             axios
-                .get("/{name}", config)
+                .get("/{urlName}", config)
                 .then(function (response) {
                     dispatch({
                         type: "GET_ALL_{actionType}",
@@ -41,7 +41,7 @@ module.exports = {
             headers: { 'Authorization': "bearer " + token }
         };
         return (dispatch) => {
-            axios.get('/{name}/' + id, config)
+            axios.get('/{urlName}/' + id, config)
                 .then(function (response) {
                     dispatch({
                         type: "GET_ONE_{actionType}",
@@ -76,7 +76,7 @@ module.exports = {
             action = "put"
         }
         return (dispatch) => {
-            axios[action]('/{name}/' + url, {name}, config)
+            axios[action]('/{urlName}/' + url, {name}, config)
                 .then(function (response) {
                     var msg = "{name} successfully created."
                     if (action == "put") {
@@ -104,7 +104,7 @@ module.exports = {
         var url = id;
         var action = "delete"
         return (dispatch) => {
-            axios[action]('/{name}/' + url, config)
+            axios[action]('/{urlName}/' + url, config)
                 .then(function (response) {
                     var msg = "{name} " + id + " successfully deleted."
                     callback()

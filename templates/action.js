@@ -8,7 +8,7 @@ module.exports = {
 
     /**
      * {actionName}.getAll() 
-     * get all {actionName} from DB
+     * get all {name} from DB
      */
     getAll: function (token, callback) {
         return dispatch => {
@@ -16,12 +16,12 @@ module.exports = {
                 headers: { Authorization: "bearer " + token }
             };
             axios
-                .get("/{actionName}", config)
+                .get("/{name}", config)
                 .then(function (response) {
                     dispatch({
                         type: "GET_ALL_{actionType}",
                         payload: {
-                            getAll{ actionName }: response.data
+                            getAll{name}: response.data
                         }
                     })
                     callback()
@@ -34,19 +34,19 @@ module.exports = {
 
     /**
      * {actionName}.getOne()
-     *  get one {actionName} from DB
+     *  get one {name} from DB
      */
     getOne: function (token, id, callback) {
         var config = {
             headers: { 'Authorization': "bearer " + token }
         };
         return (dispatch) => {
-            axios.get('/{actionName}/' + id, config)
+            axios.get('/{name}/' + id, config)
                 .then(function (response) {
                     dispatch({
                         type: "GET_ONE_{actionType}",
                         payload: {
-                            getOne{ actionName }: response.data
+                            getOne{name}: response.data
                         }
                     })
                     callback(response.data, false)
@@ -63,9 +63,9 @@ module.exports = {
 
     /**
      * {actionName}.post()
-     *  post {actionName} to DB
+     *  post {name} to DB
      */
-    post: function (token, id, { name }, callback) {
+    post: function (token, id, {name}, callback) {
         var config = {
             headers: { 'Authorization': "bearer " + token }
         };
@@ -76,11 +76,11 @@ module.exports = {
             action = "put"
         }
         return (dispatch) => {
-            axios[action]('/{actionName}/' + url, { name }, config)
+            axios[action]('/{name}/' + url, {name}, config)
                 .then(function (response) {
-                    var msg = "{actionName} successfully created."
+                    var msg = "{name} successfully created."
                     if (action == "put") {
-                        msg = "{actionName} " + id + " successfully updated."
+                        msg = "{name} " + id + " successfully updated."
                     }
                     callback()
                 })
@@ -94,7 +94,7 @@ module.exports = {
 
     /**
      * {actionName}.deleteOne()
-     *  deleteOne {actionName} from DB
+     *  deleteOne {name} from DB
      */
 
     deleteOne: function (token, id, callback) {
@@ -104,9 +104,9 @@ module.exports = {
         var url = id;
         var action = "delete"
         return (dispatch) => {
-            axios[action]('/{actionName}/' + url, config)
+            axios[action]('/{name}/' + url, config)
                 .then(function (response) {
-                    var msg = "{actionName} " + id + " successfully deleted."
+                    var msg = "{name} " + id + " successfully deleted."
                     callback()
                 })
                 .catch(function (error) {

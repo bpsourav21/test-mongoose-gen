@@ -94,7 +94,7 @@ module.exports = {
 
     /**
      * {actionName}.deleteOne()
-     *  deleteOne {name} from DB
+     *  delete one {name} from DB
      */
 
     deleteOne: function (token, id, callback) {

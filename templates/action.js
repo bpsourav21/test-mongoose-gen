@@ -10,7 +10,7 @@ module.exports = {
      * {actionName}.getAll() 
      * get all {name} from DB
      */
-    getAll: function (token, callback) {
+    getAll{name}: function (token, callback) {
         return dispatch => {
             var config = {
                 headers: { Authorization: "bearer " + token }
@@ -36,7 +36,7 @@ module.exports = {
      * {actionName}.getOne()
      *  get one {name} from DB
      */
-    getOne: function (token, id, callback) {
+    getOne{name}: function (token, id, callback) {
         var config = {
             headers: { 'Authorization': "bearer " + token }
         };
@@ -65,7 +65,7 @@ module.exports = {
      * {actionName}.post()
      *  post {name} to DB
      */
-    post: function (token, id, {name}, callback) {
+    post{name}: function (token, id, {name}, callback) {
         var config = {
             headers: { 'Authorization': "bearer " + token }
         };
@@ -97,7 +97,7 @@ module.exports = {
      *  delete one {name} from DB
      */
 
-    deleteOne: function (token, id, callback) {
+    deleteOne{name}: function (token, id, callback) {
         var config = {
             headers: { 'Authorization': "bearer " + token }
         };

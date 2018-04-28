@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 //import action files here
 import { getAll{name}, getOne{name}, post{name}, deleteOne{name} } from './{componentName}'
-//import action others files here
+//import others files here
 import './{name}.css';
 
 class {name} extends Component {
@@ -12,7 +12,12 @@ class {name} extends Component {
         super(props);
         this.state = {
         }
-
+    }
+    componentDidMount(props){
+        //codes go here
+    }
+    componentWillReceiveProps(newProps){
+        //codes go here
     }
     render() {
         return (

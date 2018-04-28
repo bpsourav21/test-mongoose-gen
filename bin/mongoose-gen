@@ -155,6 +155,14 @@ function runInteractiveMode (path) {
                     function (cb) {
                         if (results.rest !== 'yes') { return cb(); }
                         generators.generateAction(path, results.name, results.generateMethod, cb);
+                    },
+                    function (cb) {
+                        if (results.rest !== 'yes') { return cb(); }
+                        generators.generateComponent(path, results.name, results.generateMethod, cb);
+                    },
+                    function (cb) {
+                        if (results.rest !== 'yes') { return cb(); }
+                        generators.generateCSS(path, results.name, results.generateMethod, cb);
                     }
                 ],
                 function (err, results) {
@@ -199,6 +207,14 @@ function runNonInteractiveMode(path) {
             function (cb) {
                 if (!program.rest) { return cb(); }
                 generators.generateAction(path, modelName, fileTree, cb);
+            },
+            function (cb) {
+                if (!program.rest) { return cb(); }
+                generators.generateComponent(path, modelName, fileTree, cb);
+            },
+            function (cb) {
+                if (!program.rest) { return cb(); }
+                generators.generateCSS(path, modelName, fileTree, cb);
             }
         ],
         function (err, results) {

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 //import action files here
-import { getAll, getOne, post, deleteOne } from '../{componentName}'
+import { getAll, getOne, post, deleteOne } from './{componentName}'
 //import action others files here
 import './{name}.css';
 
